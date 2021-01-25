@@ -1,0 +1,7 @@
+{
+  "name": "mf-flight",
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "ng run flight:serve"
+  }
+}
