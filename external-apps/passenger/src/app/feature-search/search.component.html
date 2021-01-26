@@ -1,0 +1,77 @@
+<ng-container *ngrxLet="passengerList$ as passengers">
+
+  <div class="card">
+
+    <div class="card-header">
+      <h2 class="card-title">Passenger Search</h2>
+    </div>
+    <div class="card-body">
+
+      <button
+        routerLink="../home"
+        class="btn btn-default">
+        Home
+      </button>
+
+      <form>
+
+        <div class="form-group">
+          <label>Firstname:</label>
+          <input [(ngModel)]="firstname" name="firstname" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Name:</label>
+          <input [(ngModel)]="name" name="name" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <button (click)="load()" [disabled]="!name"
+            class="btn btn-default">
+            Search
+          </button>
+
+          <div *ngIf="passengers.length > 0">
+            {{ passengers.length }} passengers found!
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="card">
+
+    <table class="table table-condensed" *ngIf="passengers.length > 0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+              *ngFor="let p of passengers"
+              [class.table-active]="p === selectedPassenger">
+              <td><span class="badge badge-pill badge-info">
+                {{ p.id }}
+              </span></td>
+              <td>{{ p.firstName }}</td>
+              <td>{{ p.name }}</td>
+              <td>
+                <button
+                  (click)="toggleSelection(p)"
+                  class="btn btn-info btn-sm"
+                  style="min-width: 85px">
+                  {{ p === selectedPassenger ? 'Remove' : 'Select' }}
+                </button>
+              </td>
+            </tr>
+        <tbody>
+    </table>
+
+  </div>
+
+</ng-container>
