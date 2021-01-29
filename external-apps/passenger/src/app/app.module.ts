@@ -9,13 +9,12 @@ import { createCustomElement } from '@angular/elements';
 import { FormsModule } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { HomeComponent } from './feature-home/home.component';
-import { SearchComponent } from './feature-search/search.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    SearchComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

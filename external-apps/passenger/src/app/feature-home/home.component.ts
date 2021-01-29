@@ -7,4 +7,5 @@ import { Component, VERSION} from '@angular/core';
 })
 export class HomeComponent {
   version = VERSION;
+  publicPath = __webpack_public_path__;
 }

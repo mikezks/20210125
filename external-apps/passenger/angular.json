@@ -33,7 +33,8 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "singleBundle": true
+            "singleBundle": true,
+            "extraWebpackConfig": "webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -71,7 +72,8 @@
           "options": {
             "browserTarget": "passenger:build",
             "port": 5200,
-            "singleBundle": true
+            "singleBundle": true,
+            "extraWebpackConfig": "webpack.config.js"
           },
           "configurations": {
             "production": {

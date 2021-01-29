@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './feature-home/home.component';
-import { SearchComponent } from './feature-search/search.component';
-
+import { SearchModule } from './feature-search/search.module';
 
 const routes: Routes = [
   {
@@ -19,7 +18,7 @@ const routes: Routes = [
       },
       {
         path: 'search',
-        component: SearchComponent
+        loadChildren: () => import('./feature-search/search.module').then(m => m.SearchModule)
       }
     ]
   }

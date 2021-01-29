@@ -21,7 +21,7 @@
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
-    "@intauria/micro-app-platform": "file:./deps/intauria-micro-app-platform.tgz",
+    "@intauria/micro-app-platform": "file:deps/intauria-micro-app-platform.tgz",
     "@ngrx/component": "^10.1.2",
     "ngx-build-plus": "^11.0.0",
     "rxjs": "~6.5.5",

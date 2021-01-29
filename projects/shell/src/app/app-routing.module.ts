@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { importCustomElement } from '@intauria/micro-app-platform';
 import { HomeComponent } from './home/home.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -16,10 +15,10 @@ const routes: Routes = [
   },
   {
     path: 'flights',
-    loadChildren: () => importCustomElement(
-      'mf-flight',
-      'http://localhost:5100/main.js'
-    ),
+    loadChildren: () => importCustomElement({
+      tagname: 'mf-flight',
+      scriptUrl: 'http://localhost:5100/main.js'
+    }),
     outlet: 'left'
   },
   {

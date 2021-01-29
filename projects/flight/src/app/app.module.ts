@@ -1,10 +1,9 @@
 import { LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule } from '@angular/core';
-import { createCustomElement } from '@angular/elements';
+import { ApplicationRef, APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { CustomPathLocationStrategy } from '@intauria/micro-app-platform';
+import { CustomPathLocationStrategy, MicroAppPlatform, MicroAppType } from '@intauria/micro-app-platform';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,15 +27,18 @@ import { UiCardComponent } from './ui-card/flight-ui-card.component';
     AppRoutingModule
   ],
   providers: [
-    { provide: LocationStrategy, useClass: CustomPathLocationStrategy },
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    { provide: LocationStrategy, useClass: CustomPathLocationStrategy }
+  ]
 })
 export class AppModule {
-  constructor(private injector: Injector) {}
+  constructor(private microAppPlatform: MicroAppPlatform) {}
 
-  ngDoBootstrap() {
-    const ce = createCustomElement(AppComponent, {injector: this.injector});
-    customElements.define('mf-flight', ce);
+  ngDoBootstrap(app: ApplicationRef): void {
+    this.microAppPlatform.setMicroApp({
+      id: 'mf-flight',
+      tagname: 'mf-flight',
+      bootstrapFn: () => app.bootstrap(AppComponent),
+      type: MicroAppType.ngRootComponentLegacy
+    });
   }
 }
