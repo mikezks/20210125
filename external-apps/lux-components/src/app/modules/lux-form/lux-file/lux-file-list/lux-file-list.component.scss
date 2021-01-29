@@ -1,0 +1,74 @@
+@import '../lux-file-style/lux-file-common';
+
+$fontSizeSmall: 12px;
+
+.lux-file-list {
+  width: 100%;
+  border-radius: 4px;
+  position: relative;
+  margin: $outline-width;
+
+  lux-icon,
+  span {
+    color: $dark-secondary-text;
+  }
+
+  lux-button {
+    ::ng-deep {
+      button:not([disabled]) {
+        .mat-button-focus-overlay {
+          display: none;
+        }
+      }
+    }
+  }
+
+  lux-card-actions ::ng-deep,
+  .lux-file-icon-hint mat-hint {
+    font-size: $fontSizeSmall;
+  }
+
+  ::ng-deep mat-card-title {
+    @include minified-button;
+
+    > div {
+      min-height: 45px;
+    }
+
+    .lux-card-title-container {
+      color: map-get($lux-palette_darkblue, 500);
+    }
+  }
+
+  .lux-file-list-entries {
+    .lux-file-list-entry {
+      min-height: 60px;
+
+      .lux-file-list-entry-label:not(.lux-file-list-entry-label-disabled) {
+        color: $dark-primary-text;
+        -ms-word-break: break-all;
+        word-break: break-all;
+      }
+    }
+  }
+
+  // Für den disabled-Zustand entsprechend die Elemente umstylen
+  &.lux-file-list-disabled {
+    pointer-events: none;
+
+    ::ng-deep {
+      mat-card-title *,
+      mat-card-content,
+      span,
+      i {
+        color: $dark-disabled-text;
+      }
+    }
+
+    .lux-file-icon-hint {
+      span {
+        text-decoration-color: $dark-disabled-text !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<lux-form-control [luxFormComponent]="this" [luxScalableHeight]="true" [formGroup]="formGroup" *ngIf="formGroup">
+  <textarea
+    matInput
+    luxTagIdHandler
+    [luxNameAttr]="luxName"
+    [luxTagId]="luxTagId"
+    [placeholder]="luxPlaceholder"
+    [formControl]="formControl"
+    [luxMaxLengthAttr]="luxMaxLength"
+    matTextareaAutosize
+    [matAutosizeMinRows]="luxMinRows"
+    [matAutosizeMaxRows]="luxMaxRows"
+    [required]="luxRequired"
+    [readonly]="luxReadonly"
+    (blur)="luxBlur.emit($event)"
+    (focus)="luxFocus.emit($event)"
+    (focusin)="luxFocusIn.emit($event)"
+    (focusout)="luxFocusOut.emit($event)"
+    [id]="uid"
+    [luxAriaDescribedby]="uid + '-error ' + uid + '-hint'"
+  ></textarea>
+</lux-form-control>

@@ -1,0 +1,38 @@
+@import '../../../../theming/luxcommon';
+
+:host {
+  flex: 0 0 auto;
+  height: 60px;
+  min-height: 60px;
+  max-height: 60px;
+}
+
+.lux-app-footer {
+  background-color: $app-footer-bg;
+  overflow: hidden;
+}
+
+.lux-app-footer-buttons {
+  min-width: 0;
+}
+
+.lux-app-footer-buttons,
+.lux-app-footer-links {
+  ::ng-deep {
+    button {
+      height: 45px;
+      padding-top: 4px;
+      padding-bottom: 2px;
+    }
+  }
+}
+
+.footerFont {
+  font-family: $app-font-family;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.version {
+  padding: 0 16px;
+}

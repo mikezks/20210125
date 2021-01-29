@@ -1,0 +1,45 @@
+@import '../../../../../theming/luxcommon';
+
+.lux-dialog {
+  // Das Element kann fokussiert werden, das muss aber nicht zwingend mit der Outline gezeigt werden
+  outline-width: 0;
+
+  // Farbe des Dialog-Titels auf unsere Primärfarbe setzen
+  .lux-dialog-title {
+    color: map-get($lux-palette_darkblue, 500);
+  }
+
+  // der Mat-Dialog-Content hat negativen Margin und einen passenden Padding (wieso auch immer)
+  // wir schalten das ab, damit das Fokus-Highlighting passend zum Header aussieht
+  .lux-dialog-content {
+    margin: 0;
+    padding: 0;
+  }
+
+  // Leichten Abstand zum Content setzen
+  .lux-dialog-actions {
+    margin: 20px 0 0 0;
+  }
+}
+
+@mixin small-dialog {
+  ::ng-deep .mat-dialog-container {
+    padding: 8px;
+  }
+
+  ::ng-deep .mat-dialog-title {
+    margin-bottom: 8px;
+  }
+
+  .lux-dialog .lux-dialog-actions {
+    margin: 8px 0 0 0;
+  }
+}
+
+@media ($mat-xsmall) {
+  @include small-dialog;
+}
+
+@media ($mat-small) {
+  @include small-dialog;
+}

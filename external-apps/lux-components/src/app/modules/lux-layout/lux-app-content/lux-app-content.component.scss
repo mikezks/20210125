@@ -1,0 +1,16 @@
+@import '../../../../theming/luxcommon';
+
+:host {
+  position: relative;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  background-color: $app-content-bg;
+
+  .lux-app-content-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

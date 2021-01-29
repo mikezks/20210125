@@ -1,0 +1,164 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="start center"
+  class="lux-app-header lux-p-header"
+  fxFlex="100%"
+  [luxAriaRole]="luxAriaRoleHeaderLabel ? 'banner' : undefined"
+  [luxAriaLabel]="luxAriaRoleHeaderLabel"
+>
+  <!-- ausklappbares Side-Nav (linksbündig) -->
+  <div fxLayout="row" fxFlex="0 0 auto" class="lux-header-side-nav">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <ng-container *ngIf="isMasterToggleVisible(); else sideNavTriggerTemplate">
+        <lux-button
+          (luxClicked)="showMasterClick()"
+          luxIconName="keyboard_arrow_left"
+          class="lux-master-toggle"
+          luxTagId="btnMasterToggle"
+          fxFlex="auto"
+        >
+        </lux-button>
+      </ng-container>
+      <ng-template #sideNavTriggerTemplate>
+        <lux-button
+          class="lux-side-nav-trigger"
+          [ngClass]="{ 'lux-side-nav-trigger-active': sideNav.sideNavExpanded }"
+          (luxClicked)="sideNav.toggle()"
+          luxIconName="fas fa-bars"
+          luxTagId="lux-side-nav-trigger"
+          [luxAriaExpanded]="sideNav.sideNavExpanded"
+          [luxAriaLabel]="luxAriaAppMenuButtonLabel"
+          *ngIf="sideNav"
+        ></lux-button>
+      </ng-template>
+
+      <span fxLayout="row" fxLayoutAlign="center center" class="lux-nowrap lux-header-title" fxFlex="auto">
+        <lux-icon
+          style="padding: 6px 5px"
+          [luxAriaLabel]="luxAriaTitleIconLabel"
+          [luxIconName]="luxIconName"
+          [ngClass]="{ 'lux-cursor': hasOnClickedListener, focused: hasOnClickedListener }"
+          (click)="onClicked($event)"
+          (keydown.enter)="onClicked($event)"
+          (keydown.space)="onClicked($event)"
+          [attr.role]="hasOnClickedListener ? 'link' : null"
+          [attr.tabindex]="hasOnClickedListener ? '0' : null"
+          *ngIf="luxIconName && !sideNav && !mobileHelperService.isMobile()"
+        ></lux-icon>
+        <lux-image
+          style="padding: 0 5px"
+          [luxAriaLabel]="luxAriaTitleImageLabel"
+          [luxImageSrc]="luxImageSrc"
+          [luxImageHeight]="luxImageHeight"
+          [luxImageWidth]="isIE && luxImageSrc && luxImageSrc.endsWith('.svg') ? '100%' : 'auto'"
+          [ngClass]="{ 'lux-cursor': hasOnClickedListener, focused: hasOnClickedListener }"
+          (click)="onClicked($event)"
+          (keydown.enter)="onClicked($event)"
+          (keydown.space)="onClicked($event)"
+          [attr.role]="hasOnClickedListener ? 'link' : null"
+          [attr.tabindex]="hasOnClickedListener ? '0' : null"
+          *ngIf="luxImageSrc && !sideNav && !mobileHelperService.isMobile()"
+        ></lux-image
+        ><span
+          fxFlex="auto"
+          style="padding: 10px 5px"
+          class="lux-app-header-title-label"
+          [luxAriaLabel]="luxAriaTitleLinkLabel ? luxAriaTitleLinkLabel : luxAppTitle"
+          (click)="onClicked($event)"
+          (keydown.enter)="onClicked($event)"
+          (keydown.space)="onClicked($event)"
+          [attr.role]="hasOnClickedListener ? 'link' : null"
+          [attr.tabindex]="hasOnClickedListener ? '0' : null"
+          [ngClass]="{ 'lux-cursor': hasOnClickedListener, focused: hasOnClickedListener }"
+          >{{ mobileHelperService.isMobile() ? luxAppTitleShort : luxAppTitle }}</span
+        >
+      </span>
+    </div>
+  </div>
+  <!-- Action-Menu (mittig) -->
+  <div fxFlex="auto" fxLayoutAlign="end center" class="lux-header-action">
+    <ng-container [ngTemplateOutlet]="actionNav.templateRef" *ngIf="actionNav"></ng-container>
+  </div>
+  <!-- User-Menu (rechtsbündig) -->
+  <div
+    fxLayout="row"
+    fxFlex="0 0 auto"
+    fxLayoutAlign="end center"
+    class="lux-header-user"
+    [luxAriaLabel]="luxAriaUserMenuButtonLabel"
+    [ngClass]="{ 'lux-show-border': !!actionNav }"
+    *ngIf="rightNav"
+  >
+    <lux-menu
+      class="lux-header-menu"
+      ngClass.sm="lux-header-menu-mobile"
+      ngClass.xs="lux-header-menu-mobile"
+      [luxDisplayExtended]="false"
+      (luxMenuClosed)="onMenuClosed()"
+      luxClassName="lux-right-nav-menu"
+      luxTagId="app_header_menu"
+      fxFlex="0 0 auto"
+    >
+      <ng-container *ngFor="let menuItem of rightNav.menuItemComponents">
+        <lux-menu-item
+          [luxLabel]="menuItem.luxLabel"
+          [luxIconName]="menuItem.luxIconName"
+          [luxTagId]="menuItem.luxLabel"
+          [luxAlwaysVisible]="menuItem.luxAlwaysVisible"
+          [luxDisabled]="menuItem.luxDisabled"
+          [luxRaised]="menuItem.luxRaised"
+          [luxColor]="menuItem.luxColor"
+          [luxRounded]="menuItem.luxRounded"
+          (luxClicked)="menuItem.luxClicked.emit($event)"
+        >
+        </lux-menu-item>
+      </ng-container>
+      <lux-menu-trigger>
+        <button
+          mat-button
+          fxLayout="row"
+          fxLayoutAlign="end center"
+          class="lux-right-nav-trigger"
+          [luxAriaLabel]="'Benutzermenü ' + luxUserName"
+          aria-haspopup="true"
+          #customTrigger
+        >
+          <span *ngIf="luxUserName">
+            <span class="lux-nowrap lux-header-username" [fxShow.xs]="false" [fxShow.sm]="false">
+              {{ luxUserName }}
+            </span>
+            <span
+              class="lux-nowrap lux-header-user-short"
+              ngClass.gt-sm="lux-display-none"
+              ngClass.sm="lux-display-block"
+              ngClass.xs="lux-display-block"
+            >
+              <span>{{ userNameShort }}</span>
+            </span>
+          </span>
+
+          <lux-icon
+            class="lux-icon-menu-0"
+            luxIconSize="1x"
+            luxIconName="fas fa-user"
+            luxMargin="0 0 0 8px"
+            [fxShow.xs]="!luxUserName"
+            [fxShow.sm]="!luxUserName"
+          >
+          </lux-icon>
+          <lux-icon
+            class="lux-icon-menu-1"
+            luxIconSize="1x"
+            luxIconName="fas fa-sort-down"
+            luxPadding="0"
+            luxMargin="-3px 0 0 0"
+          >
+          </lux-icon>
+        </button>
+      </lux-menu-trigger>
+    </lux-menu>
+  </div>
+</div>
+
+<ng-content select="lux-app-header-right-nav"></ng-content>
+<ng-content select="lux-side-nav"></ng-content>
