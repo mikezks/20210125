@@ -2,7 +2,8 @@
   "packages": [
     "",
     "projects/flight",
-    "external-apps/passenger"
+    "external-apps/passenger",
+    "external-apps/lux-components"
   ],
   "version": "0.0.0"
 }

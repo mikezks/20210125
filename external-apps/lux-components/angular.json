@@ -32,7 +32,9 @@
             "scripts": [],
             "allowedCommonJsDependencies": [
               "hammerjs"
-            ]
+            ],
+            "singleBundle": true,
+            "extraWebpackConfig": "webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -73,7 +75,9 @@
           "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "lux-components:build",
-            "singleBundle": true
+            "singleBundle": true,
+            "port": 5300,
+            "extraWebpackConfig": "webpack.config.js"
           },
           "configurations": {
             "production": {

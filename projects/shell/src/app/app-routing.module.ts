@@ -28,6 +28,15 @@ const routes: Routes = [
       'http://localhost:5200/main.js'
     ),
     outlet: 'right'
+  },
+  {
+    path: 'lux',
+    loadChildren: () => importCustomElement(
+      'lux-components-demo',
+      'http://localhost:5300/main.js',
+      'http://localhost:5300/styles.css'
+    ),
+    outlet: 'right'
   }
 ];
 
