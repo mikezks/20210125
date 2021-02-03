@@ -41,7 +41,7 @@ export function importCustomElement(
         scriptUrl: scriptUrl,
         stylesUrl: stylesUrl
       },
-    (url : string | string[] = []) => url instanceof Array ? url : [ url ]
+    (url : string | string[] = []) => url instanceof Array ? url : (url ? [ url ] : [])
   );
 
   const ASYNC_SCRIPT_LOADER = new InjectionToken<Promise<HTMLElement[]>>('ASYNC_SCRIPT_LOADER');

@@ -7,6 +7,7 @@ export function loadScript(
   renderer: AbstractRenderer = new NativeBrowserRenderer()): Promise<any> {
 
   return new Promise<HTMLScriptElement>((resolve, reject) => {
+    !scriptUrl && reject();
     const script = renderer.createElement('script') as HTMLScriptElement;
     script.src = scriptUrl;
     script.onerror = reject;

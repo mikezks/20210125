@@ -7,6 +7,7 @@ export function loadStyles(
   renderer: AbstractRenderer = new NativeBrowserRenderer()): Promise<any> {
 
   return new Promise<HTMLLinkElement>((resolve, reject) => {
+    !stylesUrl && reject();
     const link = renderer.createElement('link') as HTMLLinkElement;
     link.rel = 'stylesheet';
     link.href = stylesUrl;

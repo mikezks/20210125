@@ -18,8 +18,7 @@ const routes: Routes = [
     loadChildren: () => importCustomElement({
       tagname: 'mf-flight',
       scriptUrl: 'http://localhost:5100/main.js'
-    }),
-    outlet: 'left'
+    })
   },
   {
     path: 'passengers',
