@@ -11,7 +11,9 @@
     "lerna": "lerna",
     "start": "lerna run serve --stream",
     "serve-passenger-with-shell": "ng serve",
-    "start-passenger-single-app": "lerna run serve-passenger-with-shell --stream"
+    "serve-lux-with-shell": "ng serve",
+    "start-passenger-single-app": "lerna run serve-passenger-with-shell --stream",
+    "start-lux-single-app": "lerna run serve-lux-with-shell --stream"
   },
   "private": true,
   "dependencies": {

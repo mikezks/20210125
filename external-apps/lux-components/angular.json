@@ -68,6 +68,13 @@
                 }
               ],
               "tsConfig": "src/tsconfig.app.ie.json"
+            },
+            "shell": {
+              "index": {
+                "input": "src/index.shell.html",
+                "output": "index.html"
+              },
+              "polyfills": ""
             }
           }
         },
@@ -85,6 +92,9 @@
             },
             "es5": {
               "browserTarget": "lux-components:build:es5"
+            },
+            "shell": {
+              "browserTarget": "lux-components:build:shell"
             }
           }
         },

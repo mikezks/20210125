@@ -26,7 +26,8 @@
     "doc": "compodoc -p src/tsconfig.app.json -n 'LUX-Components'",
     "docStart": "compodoc src -s --port 8888",
     "security": "npm audit --registry=https://registry.npmjs.org --audit-level high",
-    "smoketest": "npm run test_single_run && npm run build-aot && npm run lint --bailOnLintError true"
+    "smoketest": "npm run test_single_run && npm run build-aot && npm run lint --bailOnLintError true",
+    "serve-lux-with-shell": "ng run lux-components:serve:shell"
   },
   "private": false,
   "devDependencies": {
