@@ -32,6 +32,14 @@ export class SidebarComponent {
       },
       icon: [ 'nc-icon', 'nc-single-02' ]
     },
+    {
+      label: 'LUX',
+      link: {
+        single: '/lux',
+        multi: ['/', { outlets: { left: ['lux'] }}]
+      },
+      icon: [ 'nc-icon', 'nc-layout-11' ]
+    },
   ];
 
   constructor(private outletState: OutletStateService) {}

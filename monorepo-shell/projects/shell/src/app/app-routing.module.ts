@@ -38,7 +38,7 @@ const routes = (singleOutlet: boolean) => [
       'http://localhost:5300/main.js',
       'http://localhost:5300/styles.css'
     ),
-    outlet: singleOutlet ? 'primary' : 'right'
+    outlet: singleOutlet ? 'primary' : 'left'
   },
   {
     path: '**',
