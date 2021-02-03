@@ -4,7 +4,7 @@ import { NativeBrowserRenderer } from "./native-browser-renderer";
 export function loadScript(
   scriptUrl: string,
   parent: HTMLElement = document.head,
-  renderer: AbstractRenderer = new NativeBrowserRenderer()): Promise<any> {
+  renderer: AbstractRenderer = new NativeBrowserRenderer()): Promise<HTMLScriptElement> {
 
   return new Promise<HTMLScriptElement>((resolve, reject) => {
     !scriptUrl && reject();

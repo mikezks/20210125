@@ -30,6 +30,7 @@ export interface MicroAppPlatformState {
   ngZone: NgZoneType;
   ngPlatform: Map<Version, NgPlatformBrowser>;
   microApps: { [id: string]: MicroAppDef };
+  loadedResources: { [id: string]: boolean };
 }
 
 export class MicroAppPlatformService {
@@ -56,6 +57,14 @@ export class MicroAppPlatformService {
 
   setMicroApp(def: MicroAppDef): void {
     this.state.microApps[def.id] = def;
+  }
+
+  isResourceLoaded(resourceUrl: string): boolean {
+    return !!this.state.loadedResources[resourceUrl];
+  }
+
+  setResourceLoaded(resourceUrl: string): void {
+    this.state.loadedResources[resourceUrl] = true;
   }
 
   getNgPlatform(
@@ -94,7 +103,8 @@ export function getMicroAppPlatform(): MicroAppPlatformService {
     global.microAppPlatformState = {
       ngZone: 'zone.js',
       ngPlatform: new Map<Version, NgPlatformBrowser>(),
-      microApps: {}
+      microApps: {},
+      loadedResources: {}
     };
   }
 

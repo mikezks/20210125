@@ -1,24 +1,29 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Component } from '@angular/core';
+import { OutletStateService } from '../outlet-state.service';
 
 @Component({
     selector: 'app-navbar-cmp',
     templateUrl: 'navbar.component.html'
 })
 export class NavbarComponent {
-    
-    sidebarVisible: boolean = false;
+  singleOutlet$ = this.outletState.singleOutlet$;
+  sidebarVisible: boolean = false;
 
-    sidebarToggle(){
-        var body = document.getElementsByTagName('body')[0];
+  constructor(private outletState: OutletStateService) {}
 
-        if(this.sidebarVisible == false){
-            body.classList.add('nav-open');
-            this.sidebarVisible = true;
-        } else {
-            this.sidebarVisible = false;
-            body.classList.remove('nav-open');
-        }
+  toogleSingleOutlet(): void {
+    this.outletState.singleOutlet$.next(!this.singleOutlet$.value);
+  }
+
+  sidebarToggle(){
+    var body = document.getElementsByTagName('body')[0];
+
+    if(this.sidebarVisible == false){
+      body.classList.add('nav-open');
+      this.sidebarVisible = true;
+    } else {
+      this.sidebarVisible = false;
+      body.classList.remove('nav-open');
     }
+  }
 }

@@ -10,24 +10,14 @@
       </a>
     </div>
       <ul class="nav">
-        <li routerLinkActive="active">
-            <a routerLink="/">
-              <i class="nc-icon nc-bank"></i>
-              <p>Home</p>
-            </a>
-        </li>
-
-        <!-- <li routerLinkActive="active">
-            <a routerLink="/flights">
-              <i class="nc-icon nc-send"></i>
-              <p>MF Flights</p>
-            </a>
-        </li> -->
-
-        <li routerLinkActive="active">
-            <a routerLink="/passengers">
-              <i class="nc-icon nc-single-02"></i>
-              <p>MF Passengers</p>
+        <li
+          *ngFor="let nav of naviation"
+          routerLinkActive="active">
+            <a [routerLink]="(singleOutlet$ | async) ?
+              nav.link.single :
+              nav.link.multi">
+              <i [ngClass]="nav.icon"></i>
+              <p>{{ nav.label }}</p>
             </a>
         </li>
 
