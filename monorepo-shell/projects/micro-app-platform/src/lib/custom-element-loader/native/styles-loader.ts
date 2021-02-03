@@ -4,7 +4,7 @@ import { NativeBrowserRenderer } from "./native-browser-renderer";
 export function loadStyles(
   stylesUrl: string,
   parent: HTMLElement = document.head,
-  renderer: AbstractRenderer = new NativeBrowserRenderer()): Promise<any> {
+  renderer: AbstractRenderer = new NativeBrowserRenderer()): Promise<HTMLLinkElement> {
 
   return new Promise<HTMLLinkElement>((resolve, reject) => {
     !stylesUrl && reject();
