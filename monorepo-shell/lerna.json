@@ -1,8 +1,0 @@
-{
-  "packages": [
-    "",
-    "projects/flight",
-    "external-apps/passenger"
-  ],
-  "version": "0.0.0"
-}

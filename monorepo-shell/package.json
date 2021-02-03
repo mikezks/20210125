@@ -8,10 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "lerna": "lerna",
-    "start": "lerna run serve --stream",
-    "serve-passenger-with-shell": "ng serve",
-    "start-passenger-single-app": "lerna run serve-passenger-with-shell --stream"
+    "serve-passenger-with-shell": "ng serve"
   },
   "private": true,
   "dependencies": {
