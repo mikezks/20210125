@@ -18,16 +18,14 @@ const routes: Routes = [
     loadChildren: () => importCustomElement({
       tagname: 'mf-flight',
       scriptUrl: 'http://localhost:5100/main.js'
-    }),
-    outlet: 'left'
+    })
   },
   {
     path: 'passengers',
     loadChildren: () => importCustomElement(
       'mf-passenger',
-      'http://localhost:5200/main.js'
-    ),
-    outlet: 'right'
+      '', //'http://localhost:5200/main.js'
+    )
   }
 ];
 

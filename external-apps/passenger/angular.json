@@ -64,6 +64,13 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "shell": {
+              "index": {
+                "input": "src/index.shell.html",
+                "output": "index.html"
+              },
+              "polyfills": ""
             }
           }
         },
@@ -78,6 +85,9 @@
           "configurations": {
             "production": {
               "browserTarget": "passenger:build:production"
+            },
+            "shell": {
+              "browserTarget": "passenger:build:shell"
             }
           }
         },

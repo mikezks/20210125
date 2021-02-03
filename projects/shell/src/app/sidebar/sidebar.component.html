@@ -11,21 +11,21 @@
     </div>
       <ul class="nav">
         <li routerLinkActive="active">
-            <a [routerLink]="['/', { outlets: { left: null, right: null }}]">
+            <a routerLink="/">
               <i class="nc-icon nc-bank"></i>
               <p>Home</p>
             </a>
         </li>
 
-        <li routerLinkActive="active">
-            <a [routerLink]="['/', { outlets: { left: ['flights']}}]">
+        <!-- <li routerLinkActive="active">
+            <a routerLink="/flights">
               <i class="nc-icon nc-send"></i>
               <p>MF Flights</p>
             </a>
-        </li>
+        </li> -->
 
         <li routerLinkActive="active">
-            <a [routerLink]="['/', { outlets: { right: ['passengers']}}]">
+            <a routerLink="/passengers">
               <i class="nc-icon nc-single-02"></i>
               <p>MF Passengers</p>
             </a>
