@@ -1,4 +1,23 @@
 {
+<<<<<<< HEAD
+  "name": "lerna-config",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lerna": "lerna",
+    "start": "lerna run serve --stream",
+<<<<<<<< HEAD:monorepo-shell/package.json
+    "serve-passenger-with-shell": "ng serve",
+    "serve-lux-with-shell": "ng serve",
+    "start-passenger-single-app": "lerna run serve-passenger-with-shell --stream",
+    "start-lux-single-app": "lerna run serve-lux-with-shell --stream"
+========
+    "start-passenger-single-app": "lerna run serve-passenger-with-shell --stream"
+>>>>>>>> master:package.json
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+=======
   "name": "mf-demo",
   "version": "0.0.0",
   "scripts": {
@@ -8,12 +27,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "lerna": "lerna",
-    "start": "lerna run serve --stream",
-    "serve-passenger-with-shell": "ng serve",
-    "serve-lux-with-shell": "ng serve",
-    "start-passenger-single-app": "lerna run serve-passenger-with-shell --stream",
-    "start-lux-single-app": "lerna run serve-lux-with-shell --stream"
+    "serve-passenger-with-shell": "ng serve"
   },
   "private": true,
   "dependencies": {
@@ -53,5 +67,6 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.1.2"
+>>>>>>> master
   }
 }

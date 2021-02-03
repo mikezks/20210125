@@ -1,9 +1,9 @@
 {
   "packages": [
-    "",
-    "projects/flight",
-    "external-apps/passenger",
-    "external-apps/lux-components"
+    "monorepo-shell",
+    "monorepo-shell/projects/flight",
+    "passenger",
+    "lux-components"
   ],
   "version": "0.0.0"
 }
