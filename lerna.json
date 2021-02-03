@@ -1,0 +1,8 @@
+{
+  "packages": [
+    "monorepo-shell",
+    "monorepo-shell/projects/flight",
+    "passenger"
+  ],
+  "version": "0.0.0"
+}

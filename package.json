@@ -1,0 +1,13 @@
+{
+  "name": "lerna-config",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lerna": "lerna",
+    "start": "lerna run serve --stream",
+    "start-passenger-single-app": "lerna run serve-passenger-with-shell --stream"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
