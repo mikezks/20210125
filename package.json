@@ -5,7 +5,8 @@
   "scripts": {
     "lerna": "lerna",
     "start": "lerna run serve --stream",
-    "start-passenger-single-app": "lerna run serve-passenger-with-shell --stream"
+    "start-passenger-single-app": "lerna run serve-passenger-with-shell --stream",
+    "start-lux-single-app": "lerna run serve-lux-with-shell --stream"
   },
   "devDependencies": {
     "lerna": "^3.22.1"
